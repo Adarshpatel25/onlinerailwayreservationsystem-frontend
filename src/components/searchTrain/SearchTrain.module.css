@@ -1,0 +1,71 @@
+body {
+    background-image: url('../../../public/assets/searchtrains.jpg');	
+	background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.form_container {
+    margin: 100px auto;    
+    width: 380px;
+    height: 460px;
+    background-color: rgb(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px #888888;
+}
+
+.h1 {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	text-align: center;
+	color: purple;
+	font-weight: 300;
+	margin-bottom: 20px;
+}
+
+.form {
+    font-size: 23px;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: left;
+        
+}
+
+.label {
+    margin-bottom: 5px;
+}
+
+.to, .from {
+	font-size: 15px;
+    height: 50px;
+	width: 60%;
+}
+
+.from {
+    margin-bottom: -20px;
+}
+
+.seatCoach {
+    font-size: 15px;
+    height: 50px;
+    width: 60%;
+}
+
+.btn {
+    text-align: center;
+}
+
+.search {
+    border: none;
+    font-size: 20px;
+    border-radius: 3px;
+    padding: 7px 10px;
+    background-color: blueviolet;
+    color: white;
+}
+
+.search:hover {
+    background-color: rgb(141, 8, 141);
+}
+
+

@@ -1,0 +1,47 @@
+body {
+    background-image: url('../../../public/assets/selectBookingImg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.paymentContainer {
+    position: relative;
+    height: 340px;  
+    width: 40%;
+    background-color: rgba(88, 164, 231, 0.8);
+    margin: 50px auto;
+    padding: 20px;	
+    border-radius: 5px;
+}
+
+.card {
+    float: left;
+}
+
+.formContainer {
+    position: relative;
+    float: right;   
+    width: 260px;
+    height: 100%;
+}
+
+.formContainer input {
+    height: 40px;
+}
+
+.button {
+    position: absolute;
+    border: none;
+    left: 25px;
+    bottom: 10px;
+    background-color: lavenderblush;
+    color: purple;
+    border-radius: 5px;
+}
+
+
+.button:hover {
+    background-color: purple;
+    color: lavenderblush;
+    border: 1px solid lavenderblush;
+}

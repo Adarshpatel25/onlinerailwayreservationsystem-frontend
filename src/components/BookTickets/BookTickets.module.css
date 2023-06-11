@@ -1,0 +1,274 @@
+body {
+    background-image: url('../../../public/assets/selectBookingImg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    position: relative;
+    height: 600px;  
+    width: 50%;
+    background-color: rgb(240, 248, 255, 0.8);
+    margin: 50px auto;
+    padding: 20px;	
+}
+
+.mini1 {
+    height: 160px;
+    width: 98%;
+    background-color: azure;
+    margin: 0 auto;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 10px;
+  
+}
+.mini1 .trainName {
+    font-weight: bold;
+}
+
+.mini1 .fromTiming {
+    position: absolute;
+    top: 130px;
+    left: 40px;
+    font-weight: bold;
+}
+
+.mini1 .toTiming {
+    position: absolute;
+    top: 130px;
+    right: 40px;
+	font-weight: bold;
+}
+
+.mini1 .fromStation {
+    position: absolute;
+    top: 150px;
+    left: 40px;
+    color: rgb(68, 64, 64);
+}
+.mini1 .toStation {
+    position: absolute;
+    top: 150px;
+    right: 40px;
+    color: rgb(68, 64, 64)
+}
+.mini1 .label {
+    display: block;
+    margin-top: 10px;
+}
+.mini1 .date {
+    margin-top: 5px;
+    height: 25px;
+    width: 150px;
+}
+
+.mini2 {
+    position: relative;
+    height: 320px;
+    width: 98%;
+    background-color: azure;
+    margin: 0 auto;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.h3 {
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.passengerContainer {
+    height: 130px;
+    width: 100%;
+    margin-bottom: 10px;   
+}
+
+.passenger {
+    position: relative;
+    display: none;
+    margin-bottom: 7px;
+    visibility: hidden;
+}
+
+.passenger:first-child{    
+    display: inline;
+    visibility: visible;
+    margin-bottom: 10px;
+}
+
+.label{
+    display: inline;
+    font-size: medium;
+}
+
+.passenger .input1 {
+    display: inline;
+    height: 40px;
+    width: 40%;
+    margin-bottom: 0;
+    margin-right: 20px;
+}
+
+.removePassenger {
+    position: absolute;
+    color: black;
+    right: 10px;
+    top: 5px;
+}
+
+
+.addNew {
+    position: absolute;
+    background-color: rgb(113, 235, 235);
+    color: rgb(57, 22, 22);
+    font-size: 23px;
+    bottom: 60px;
+    margin: 15px 0 10px 0;
+
+}
+
+.addNew:hover {
+    background-color: rgb(137, 248, 248);
+}
+
+.fees {
+    position: absolute;
+    left: 10px;
+    bottom: 15px;
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    background-color: #b2f0d2;
+    padding: 7px;
+    border-radius: 3px;
+    font-size: 13px;
+    text-shadow: 1px 1px rgb(185, 231, 144);
+}
+.fees:hover {
+    transform: translateY(-5px);
+}
+
+.btn_cont {
+	margin-top: 20px;
+	text-align: center;
+}
+.btn {
+	text-decoration: none;
+	font-size: 24px;
+	padding: 5px;
+	color: white;
+	background-color: rgb(177, 54, 177);
+	border: none;
+	border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: rgb(211, 103, 211);
+}
+
+
+
+/* .button {
+    float: left;
+    margin: 30px 5px 5px 10px;
+    position: relative;
+    width: 110px;
+    height: 65px;
+    text-align: center;
+    background-color: #e3fff2;
+    border: 1px solid #38b87c;
+}
+
+ */
+
+/* .button .input2 {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.011;
+    z-index: 100;
+}
+
+.button:hover {
+    background-color: #8ee7be;
+}
+
+
+
+.button .label1 {
+    cursor: pointer;
+    z-index: 90;
+    line-height: 1.5rem;
+    text-align: center;
+}
+
+ */
+
+
+
+/* .popup {
+    position: relative;
+    height: 180px;
+    width: 85%;
+    top: 100px;
+    margin: -400px auto;
+    background-color: rgb(0, 255, 255, 0.9);
+    visibility: hidden;
+}
+
+.confirm, .cancel {
+    text-decoration: none;
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+}
+
+.popup .h2 {
+    position: absolute;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: purple;
+    background-color: antiquewhite;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.confirm {
+    position: absolute;
+    background-color: lightgreen;
+    text-align: center;
+    width: 90px;
+    bottom: 20px;
+    left: 40px;
+    padding: 6px;  
+}
+
+.cancel {
+    position: absolute;
+    background-color: orange;
+    text-align: center;
+    width: 90px;
+    bottom: 20px;
+    right: 40px;
+    padding: 6px;
+}
+
+.confirm:hover {
+    background-color: rgb(78, 186, 78);
+}
+
+.cancel:hover {
+    background-color: rgb(241, 84, 26);
+}
+
+
+ */

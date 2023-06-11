@@ -1,0 +1,233 @@
+body {
+    background-image: url('../../../public/assets/showBookingsImg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    background-color: aliceblue;
+    height: 600px;
+    width: 40%;
+    margin: 60px auto;
+    border-radius: 3px;
+    overflow: scroll;
+}
+
+.showBookings {
+    margin-top: 30px;
+}
+
+.booking {
+    position: relative;
+    background: linear-gradient(90deg, rgba(226,209,246,1) 52%, rgba(226,208,232,1) 56%, rgba(235,209,101,1) 100%, rgba(0,212,255,1) 100%);
+    height: 240px;
+    border: 2px solid rgb(88, 86, 86);
+    margin: 10px 20px;
+}
+
+.passengerAndTrain {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 300px;
+}
+
+.pnrNo {
+    position: absolute;
+    font-size: larger;
+    top: 3px;
+    left: 10px;
+    font-weight: 500;
+    color: rgb(97, 6, 97);
+}
+
+.h4 {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 300;
+    color: purple;
+    
+}
+
+.passengerDetailsLabel {
+    position: absolute;
+    top: 65px;
+    left: 10px;
+    font-size: larger;
+    color: rgb(16, 107, 138);
+    font-weight: 600;
+}
+
+.passenger {
+    overflow: scroll;
+    overflow-x: hidden;
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    height: 60px;
+    width: 280px;
+}
+
+
+.passengerDetails {
+    display: block;
+    color: cornflowerblue;
+    text-shadow: 1px 1px black;
+    font-size: medium;
+    font-weight: 500;
+}
+
+.fromStation {
+    display: block;    
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: large;
+}
+.arrow {
+    position: absolute;
+    bottom: 8px;
+    left: 150px;
+}
+.toStation {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: large;
+}
+
+.timing {
+	position: absolute
+}
+
+.transactionDetails {
+    position: relative;
+    height: 60%;
+    width: 240px;
+    float: right;
+}
+
+.ticketFee {
+    position: absolute;
+    font-size: 20px;
+    top: 3px;
+    right: 20px;
+}
+
+.transactionLabel {
+    position: absolute;
+    font-weight: 400;
+    font-size: large;
+    bottom: 30px;
+    right: 20px;
+    margin-bottom: 5px;
+}
+
+.time {
+    position: absolute;
+    bottom: 10px;
+    right: 100px;
+    margin-right: 20px;
+}
+
+.date {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+.cancelButton {
+    position: absolute;
+    padding: 4px 7px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(218, 93, 48);
+    right: 20px;
+    bottom: 10px;
+}
+
+.cancelButton:hover {
+    background-color: orangered;
+}
+
+.cancelled {
+    position: absolute;
+    padding: 4px 7px;
+    border-radius: 5px;
+    right: 20px;
+    bottom: 10px;
+    background-color: orange;
+    color: white;
+    font-size: larger;
+}
+
+.cancelled:hover {
+    cursor: pointer;
+    background-color: orange;
+}
+
+.popup {
+    position: sticky;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: gainsboro;
+}
+
+.popupContainer {
+    position: fixed;
+    max-height: 240px;
+    max-width: 300px;
+    top: 50%;
+    left: 50%;
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 100;
+}
+
+.confirmCancel {
+    display: inline;
+    border: none;
+    border-radius: 3px;
+    font-size: 25px;
+    float: left;
+    margin-top: 20px;
+    background-color: #212121;
+    color: white;
+    cursor: pointer;
+    font-family: "Work Sans", sans-serif;
+
+}
+
+.confirmCancel:hover {
+    background-color: white;
+    color: #212121;
+    border: 1px solid #212121;
+    
+}
+
+.goBack {
+    margin-left: 30px;
+    border: none;
+    border-radius: 3px;
+    font-size: 25px;
+    margin-top: 20px;  
+    color:white;
+    background-color: rgb(144, 90, 203);
+}
+
+.goBack:hover {
+    background-color: white;
+    border: 1px solid rgb(144, 90, 203);
+    color: rgb(144, 90, 203);
+}
+
+
+
