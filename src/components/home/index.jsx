@@ -12,11 +12,11 @@ const Home = () => {
 
   const expiry = localStorage.getItem('expiry');
   const currentTime = new Date().getTime();
-
+  console.log(loggedIn[0]);
 
   return (
     <>
-    {(loggedIn) ?<NavbarAfterLogin/>:<Navbar/>}
+    {(loggedIn[0] ) ?<NavbarAfterLogin/>:<Navbar/>}
     <section class={styles.container}>
       <div class={styles.hero_wrapper}>
         <div class={styles.hero_section}>

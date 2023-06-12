@@ -50,6 +50,8 @@ const BookTickets = () => {
 		
 	function save(event)
   	{
+		if(dateError == undefined) {
+
 		const time = new Date().toLocaleTimeString();
 		const date = new Date().toLocaleDateString();
 
@@ -96,7 +98,10 @@ const BookTickets = () => {
 		localStorage.setItem("reservationDate", reservationDate);
 
 		navigate("/payment");
-		  
+		}
+		else {
+			alert("Kindly correct your errors and try again");
+		}
  	}
 
 	const [passengerName1, setPassengerName1] = useState("");
@@ -113,6 +118,34 @@ const BookTickets = () => {
 
 	const [passengerName5, setPassengerName5] = useState("");
 	const [passengerAge5, setPassengerAge5] = useState("");
+
+	const [dateError, setDateError] = useState();
+
+
+	const handleDateChange = (event) => {
+		event.preventDefault();
+		const date = String(event.target.value);
+
+		const year = Number(date.slice(0, 4));
+		const month = Number(date.slice(5, 7));
+		const day = Number(date.slice(8));
+
+		const currentYear = new Date().getFullYear();
+		const currentMonth = new Date().getMonth()+1;
+		const currentDay = new Date().getDate();
+
+		
+
+
+		if(currentYear > year || (currentMonth > month && currentYear == year) || (currentDay > day && currentMonth == month && currentYear == year)) {
+			setDateError("Kindly enter the correct Date");
+		}
+		else {
+			setDateError(undefined);
+			setReservationDate(event.target.value);
+		}	
+
+	}
 
 
  	const handleAddPassenger = (event) => {
@@ -161,7 +194,8 @@ const BookTickets = () => {
 				<span className={styles.fromTiming}>{fromStationTiming}</span> <span
 					className={styles.fromStation}>{fromStation}</span> <span className={styles.toTiming}>{toStationTiming}</span>
 				<span className={styles.toStation}>{toStation}</span> <label for="date" className={styles.label}>Enter
-					Date of Travel</label> <input type="date" value={reservationDate} className={styles.date} onChange={ (event) => setReservationDate(event.target.value)}/>
+					Date of Travel</label> <input type="date" value={reservationDate} className={styles.date} onChange={handleDateChange}/>
+				{(dateError) && (<p className={styles.dateError}>{dateError}</p>)}
 			</div>
 			<div className={styles.mini2} id="mini2">
 				<h3 className={styles.h3}>Passenger Details</h3>
@@ -236,24 +270,6 @@ const BookTickets = () => {
 				</div>
 
 				<button className={styles.addNew} id="addNew" onClick={handleAddPassenger}>Add Passenger</button>
-
-				{/* <div className={styles.button}>
-
-					<label for="radio" className={styles.label1}><span className={styles.class}>First Class</span> <span
-						className={styles.fees}>Fare: {ticketFee*2.5}</span></label> <input type="radio" className={styles.input2} id="radio"
-						value="First Class" onChange={(e) => setSeatCoach(e.target.value)} checked={seatCoach === 'First Class'}/>
-
-				</div>
-				<div className={styles.button}>
-					<label for="radio" className={styles.label1}><span className={styles.class}>Second Class</span> <span
-						className={styles.fees}>Fare: {ticketFee*1.8}</span> </label> <input type="radio" className={styles.input2} id="radio"
-						value="Second Class" onChange={(e) => setSeatCoach(e.target.value)} checked={seatCoach === 'Second Class'} />
-				</div>
-				<div className={styles.button}>
-					<label for="radio" className={styles.label1}><span className={styles.class}>Third Class</span> <span
-						className={styles.fees}>Fare: {ticketFee}</span> </label> <input type="radio" className={styles.input2} id="radio"
-						value="Third Class" onChange={(e) => setSeatCoach(e.target.value)} checked={seatCoach === 'Third Class'}/>
-				</div> */}
 			
 				<div className={styles.fees}>
 					<span className={styles.feeAmount}>Your Total Fee Amount: {countOfPassengers*amount}</span>

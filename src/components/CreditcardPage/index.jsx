@@ -15,6 +15,10 @@ const PaymentForm = () => {
     focus: '',
   });
 
+  const [numberError, setNumberError] = useState();
+  const [expiryError, setExpiryError] = useState();
+  const [cvcError, setCvcError] = useState();
+  
 
   const email = localStorage.getItem("email");
   const trainNo = localStorage.getItem("trainNo");
@@ -64,7 +68,70 @@ const PaymentForm = () => {
           }
       });
       alert("Booking Successful");
+      setState({
+        number: '',
+        expiry: '',
+        cvc: '',
+        name: '',
+        focus: '',
+      });
       navigate("/");    
+  }
+
+  const handleNumberInput = (event) => {
+      const cardNumber = String(event.target.value);
+
+      if(cardNumber.length > 16) {
+        setNumberError("Card Number Should Not exceed 16 digits");
+      }
+      else {
+        setNumberError(undefined);
+        setState((prev) => ({...prev, number: event.target.value}));
+      }
+  }
+
+  
+  const handleExpiryInput = (event) => {
+    const expiry = String(event.target.value);
+  
+
+    if(expiry.length == 3 && (Number(expiry.slice(0, 2)) > 12 || expiry.slice(0, 2) == "00")) {
+      setExpiryError("Expiry month should be valid");
+    }
+    else if(expiry.length > 4) {
+        setExpiryError("Expiry Date should be valid");
+    }
+    else {
+      setExpiryError(undefined);
+      setState((prev) => ({...prev, expiry: event.target.value}));
+      if(expiry.length == 4) {
+        const expiryMonth = String(event.target.value).slice(0, 2);
+        const expiryYear = String(event.target.value).slice(2);
+  
+        const currentMonth = String(new Date().getMonth());
+        const currentYear = String(new Date().getFullYear()).slice(2, 4);
+    
+        if(Number(expiryYear) < Number(currentYear)) {
+          setExpiryError("Your Card is expired");
+        }
+        else if(Number(expiryMonth) <= Number(currentMonth) && Number(expiryYear) == Number(currentYear)) {
+          setExpiryError("Your Card is expired");
+        }
+  
+      }
+    }
+  }
+
+  const handleCvcInput = (event) => {
+    const cvc = String(event.target.value);
+
+    if(cvc.length > 3) {
+      setCvcError("Cvc should not contain more than 3 digits");
+    }
+    else {
+      setCvcError(undefined);
+      setState((prev) => ({...prev, cvc: event.target.value}));
+    }
   }
 
   const handleInputChange = (evt) => {
@@ -76,6 +143,7 @@ const PaymentForm = () => {
   const handleInputFocus = (evt) => {
     setState((prev) => ({ ...prev, focus: evt.target.name }));
   }
+  
 
   return (
     <div className={styles.paymentContainer}>
@@ -88,16 +156,17 @@ const PaymentForm = () => {
         focused={state.focus}
       />
       </div>
-      <div className={styles.formContainer}>
       <form onSubmit={processPayment} >
+      <div className={styles.formContainer}>
         <input
           type="number"
           name="number"
           placeholder="Card Number"
           value={state.number}
-          onChange={handleInputChange}
+          onChange={handleNumberInput}
           onFocus={handleInputFocus}
         />
+        {numberError && <p className={styles.errorMessage}>{numberError}</p>}
         <input
           type="text"
           name="name"
@@ -111,22 +180,24 @@ const PaymentForm = () => {
           name="expiry"
           placeholder="Card Expiry Date"
           value={state.expiry}
-          onChange={handleInputChange}
+          onChange={handleExpiryInput}
           onFocus={handleInputFocus}
         />
+        {expiryError && <p className={styles.errorMessage}>{expiryError}</p>}
         <input
-          type="number"
+          type="password"
           name="cvc"
           placeholder="Card CVC/CVV"
           value={state.cvc}
-          onChange={handleInputChange}
+          onChange={handleCvcInput}
           onFocus={handleInputFocus}
         />
-        <div className={styles.buttonContainer}>
+        {cvcError && <p className={styles.errorMessage}>{cvcError}</p>}
+      </div>
+      <div className={styles.buttonContainer}>
             <button type='submit' className={styles.button}>Confirm Payment</button>
         </div>
-      </form>
-      </div>
+        </form>
     </div>
   );
 }

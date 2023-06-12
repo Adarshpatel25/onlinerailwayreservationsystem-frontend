@@ -6,7 +6,7 @@ body {
 
 .paymentContainer {
     position: relative;
-    height: 340px;  
+    min-height: 400px;  
     width: 40%;
     background-color: rgba(88, 164, 231, 0.8);
     margin: 50px auto;
@@ -22,18 +22,22 @@ body {
     position: relative;
     float: right;   
     width: 260px;
-    height: 100%;
+    min-height: 100%;
 }
 
 .formContainer input {
     height: 40px;
 }
 
-.button {
+.buttonContainer {
     position: absolute;
+    bottom: 20px;
+    left: 200px;
+}
+
+.button {
+  
     border: none;
-    left: 25px;
-    bottom: 10px;
     background-color: lavenderblush;
     color: purple;
     border-radius: 5px;
@@ -44,4 +48,10 @@ body {
     background-color: purple;
     color: lavenderblush;
     border: 1px solid lavenderblush;
+}
+
+.errorMessage {
+    font-size: 15px;
+    color: red;
+    margin-top: -20px;
 }

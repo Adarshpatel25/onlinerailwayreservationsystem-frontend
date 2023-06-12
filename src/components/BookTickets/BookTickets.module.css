@@ -63,6 +63,13 @@ body {
     width: 150px;
 }
 
+.dateError {
+    position: absolute;
+    top: 95px;
+    left: 200px;
+    color: red;
+}
+
 .mini2 {
     position: relative;
     height: 320px;

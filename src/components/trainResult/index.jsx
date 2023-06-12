@@ -26,8 +26,18 @@ const TrainResult = (props) => {
         
         axios.get(`http://localhost:8000/handleSearch?from=${fromStation}&to=${toStation}`).then((response) => {
             setTrainsList(response.data);
-    
-        });
+        }).catch((error) => {
+            if(error.response) {
+              alert("Response Error Code " + error.response.status);
+            }
+            else if(error.request) {
+              alert("No Response received from Server");
+            }
+            else {
+              alert("Something went wrong " + error.data);
+            }
+          }); 
+;
 
     }, [fromStation, toStation]);
 
@@ -44,6 +54,7 @@ const TrainResult = (props) => {
                     <th>Start time</th>
                     <th>Destination time</th>
                     <th>Select Train</th>
+                    <th>Train Schedule</th>
                 </tr>
                 {
                     trainsList.map( (train) => (
@@ -52,7 +63,7 @@ const TrainResult = (props) => {
                             <th>{train.trainName}</th>
                             <th>{train.fromStationTiming}</th>
                             <th>{train.toStationTiming}</th>
-                            <th><button onClick={(event) => {
+                            <th><button className={styles.button} onClick={(event) => {
                                  if(localStorage.getItem('user')) {
                                 
                                     localStorage.setItem('trainNo', train.trainNo);
@@ -67,7 +78,19 @@ const TrainResult = (props) => {
                                 else {
                                     navigate("/login");
                                 }
-                            }}>Select</button></th>
+                            }}>Select</button>
+                            </th>
+                            <th>
+                                <button className={styles.viewScheduleButton} onClick={() => {
+                                    localStorage.setItem('trainNo', train.trainNo);
+                                    localStorage.setItem('trainName', train.trainName);
+                                    localStorage.setItem('fromStation', train.fromStation);
+                                    localStorage.setItem('toStation', train.toStation);
+                                    navigate("/schedulesPage");                                 
+                                }}>
+                                View Schedule
+                                </button> 
+                            </th>
                         </tr>
                     ))
                 }

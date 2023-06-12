@@ -1,7 +1,7 @@
 .form_container {
     margin: 100px auto;    
-    width: 400px;
-    height: 300px;
+    width: 500px;
+    height: 600px;
     background-color: rgb(255, 255, 255, 0.8);
     border-radius: 5px;
     padding: 24px;
@@ -33,8 +33,13 @@ table, th, td {
 }
 
 .button {
-    color: orangered;
-       
+    color: chocolate;
+    font-size: 20px;
+}
+
+.viewScheduleButton {
+    color: purple;
+    font-size: 15px;
 }
 
 .noButton {

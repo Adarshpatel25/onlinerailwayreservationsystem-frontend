@@ -14,6 +14,7 @@ import BookTickets from './components/BookTickets';
 import ViewBookings from './components/viewbookings';
 import { useEffect, useState } from 'react';
 import PaymentForm from './components/CreditcardPage';
+import TrainStationsPage from './components/TrainStationsPage';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/home' exact element={<HomePageAfterLogin />} />
         <Route path="/searchTrain" exact element={[<SearchTrain/>]} />
         <Route path="/trainResult" exact element={[<TrainResult/>]} />
+        <Route path='/schedulesPage' exact element={[<TrainStationsPage/>]} />
         <Route path="/bookTickets" exact element={[<NavbarAfterLogin/>,<BookTickets/>]} />
         <Route path="/payment" exact element={[<NavbarAfterLogin/>,<PaymentForm/>]} />
         <Route path='/viewBookings' exact element={[<NavbarAfterLogin/>,<ViewBookings/>]} />

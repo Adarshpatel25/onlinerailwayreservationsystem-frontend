@@ -30,10 +30,7 @@ const Signup = () => {
           'headers': {
           'Content-Type': 'application/json'
           }
-        }).then(response => {
-            navigate("/login");
-        })
-        .catch((error) => {
+        }).catch((error) => {
           if(error.response) {
             alert("Response Error Code " + error.response.status);
           }
@@ -44,7 +41,7 @@ const Signup = () => {
             alert("Something went wrong " + error.data);
           }
         });
-        
+        navigate("/login");
       }
      
     } );
