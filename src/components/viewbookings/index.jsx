@@ -13,7 +13,7 @@ const ViewBookings = () => {
         trainName: "",
         fromStation: "",
         toStation: "",
-        passengerDetails:[{}],
+        passengerDetails:[],
         amount: "",
         seatCoach: "",
         time: "",
@@ -62,7 +62,9 @@ const ViewBookings = () => {
                             <div className={styles.passenger}>
                             
                             {booking.passengerDetails.map((passenger) => ( 
-                                <span className={styles.passengerDetails}>{passenger.passengerName}, {passenger.passengerAge} y/o</span>
+                                <span className={styles.passengerDetails}>{passenger.passengerName}, {passenger.passengerAge} y/o
+                                <span className={styles.seatDetails}>Seat No:- {passenger.seatNo}, Seat Coach:- {booking.seatCoach}</span>
+                                </span>
                             ))
                             }
                             </div>

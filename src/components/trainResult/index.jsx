@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState} from "react";
 import axios from "axios";
 import styles from './TrainResult.module.css';
 import { useNavigate } from "react-router-dom";
@@ -21,10 +21,12 @@ const TrainResult = (props) => {
     
     const fromStation = localStorage.getItem('fromStation');
     const toStation = localStorage.getItem('toStation');
+    const seatCoach = localStorage.getItem('seatCoach');
+
 
     useEffect(() => {
         
-        axios.get(`http://localhost:8000/handleSearch?from=${fromStation}&to=${toStation}`).then((response) => {
+        axios.get(`http://localhost:8000/booking/handleSearch?from=${fromStation}&to=${toStation}&seatCoach=${seatCoach}`).then((response) => {
             setTrainsList(response.data);
         }).catch((error) => {
             if(error.response) {

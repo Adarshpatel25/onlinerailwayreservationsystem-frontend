@@ -23,7 +23,7 @@ const HomePageAfterLogin = () => {
                 <p className={styles.sub_title}>
                   Book Your Tickets Here. <br/>
                 </p>
-                <a href='/searchTrain' className={`btn ${styles.book_btn}`}>
+                <a href='/login' className={`btn ${styles.book_btn}`}>
                   Book Tickets
                 </a>
               </div>

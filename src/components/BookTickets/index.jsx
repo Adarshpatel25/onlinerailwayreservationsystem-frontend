@@ -3,6 +3,7 @@ import axios from "axios";
 import styles from './BookTickets.module.css';
 import { Navigate, useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import Navbar from "../navbar";
 
 
 const BookTickets = () => {
@@ -25,8 +26,8 @@ const BookTickets = () => {
 	const [countOfPassengers, setCountOfPassengers] = useState(1);
 
 	useEffect(() => {
-		try {
-			const response = axios.get(`http://localhost:8000/booking/selectBooking?trainName=${trainName}&fromStation=${fromStation}&toStation=${toStation}`).then((response) => {
+	
+			const response = axios.get(`http://localhost:8000/booking/selectBooking?trainNo=${trainNo}&fromStation=${fromStation}&toStation=${toStation}&seatCoach=${seatCoach}`).then((response) => {
 	 		const feesInNum = Number(response.data);
 			
 			if(seatCoach == "First Class") {
@@ -40,11 +41,18 @@ const BookTickets = () => {
 			}
 			console.log(amount);
 			
-	 	});
-		}
-		catch(err) {
-			alert("Error");
-		}
+	 	}).catch((error) => {
+            if(error.response) {
+              alert("Response Error Code " + error.response.status);
+            }
+            else if(error.request) {
+              alert("No Response received from Server");
+            }
+            else {
+              alert("Something went wrong " + error.data);
+            }
+          }); 
+
 
 	 	}, [amount]);
 		
@@ -184,9 +192,12 @@ const BookTickets = () => {
 			alert("Sorry, but you cannot add more than 5 passengers");
 		}
 	}
+
+	const loggedIn = useState(localStorage.getItem("user"));
  
     return (
         <>
+		
         <div className={styles.container} id="container">
 		<form>
 			<div className={styles.mini1}>

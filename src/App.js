@@ -15,6 +15,10 @@ import ViewBookings from './components/viewbookings';
 import { useEffect, useState } from 'react';
 import PaymentForm from './components/CreditcardPage';
 import TrainStationsPage from './components/TrainStationsPage';
+import AdminNavbar from './components/AdminNavbar';
+import AdminHomePage from './components/AdminHomePage';
+import ManageTrains from './components/manageTrains';
+import AddTrain from './components/addTrain';
 
 function App() {
 
@@ -25,12 +29,15 @@ function App() {
       <Routes>
         <Route path='/' exact element={<Home />} />
         <Route path='/home' exact element={<HomePageAfterLogin />} />
+        <Route path='/adminHomePage' exact element={[<AdminHomePage/>]} />
+        <Route path='/manageTrain' exact element={[<ManageTrains/>]} />
+        <Route path='/addTrain' exact element={[<AddTrain/>]} />
         <Route path="/searchTrain" exact element={[<SearchTrain/>]} />
         <Route path="/trainResult" exact element={[<TrainResult/>]} />
         <Route path='/schedulesPage' exact element={[<TrainStationsPage/>]} />
-        <Route path="/bookTickets" exact element={[<NavbarAfterLogin/>,<BookTickets/>]} />
-        <Route path="/payment" exact element={[<NavbarAfterLogin/>,<PaymentForm/>]} />
-        <Route path='/viewBookings' exact element={[<NavbarAfterLogin/>,<ViewBookings/>]} />
+        <Route path="/bookTickets" exact element={[<BookTickets/>]} />
+        <Route path="/payment" exact element={[<PaymentForm/>]} />
+        <Route path='/viewBookings' exact element={[<ViewBookings/>]} />
         <Route path='/login' exact element={[<Navbar/>,<Login />]} />
         <Route path='/sign-up' exact element={<Signup/>} />
       </Routes>

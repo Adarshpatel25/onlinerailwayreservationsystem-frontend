@@ -1,18 +1,25 @@
 import React from 'react';
-import styles from './Home.module.css';
-import 'bootstrap';
-import Navbar from '../navbar';
-import NavbarAfterLogin from '../navbarafterlogin';
+import styles from './AdminHomePage.module.css';
+import AdminNavbar from '../AdminNavbar';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Navbar from '../navbar';
+import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+const AdminHomePage = () => {
 
-  const loggedIn = useState(localStorage.getItem("user"));
+  const isAdmin = useState(localStorage.getItem("isAdmin"));
+
+  const navigate = useNavigate();
+
+  if(!isAdmin) {
+      navigate("/");
+  }
+
 
   return (
     <>
-    {(loggedIn[0] ) ?<NavbarAfterLogin/>:<Navbar/>}
+    {(isAdmin ) ?<AdminNavbar/>:<Navbar/>}
     <section class={styles.container}>
       <div class={styles.hero_wrapper}>
         <div class={styles.hero_section}>
@@ -23,14 +30,9 @@ const Home = () => {
                   Railway Ticket <strong>Reservation</strong> System
                 </h2>
                 <p className={styles.sub_title}>
-                  Book Your Tickets Here. <br />
-        
+                  Admin Page <br />
                 </p>
-                {(loggedIn[0] ) ?  <a href='/login' class={`btn ${styles.book_btn}`}>
-                  Book Tickets
-                </a> :  <a href='/searchTrain' class={`btn ${styles.book_btn}`}>
-                  Book Tickets
-                </a>}
+                
               </div>
             </div>
           </div>
@@ -41,4 +43,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AdminHomePage;

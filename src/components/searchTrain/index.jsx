@@ -26,7 +26,7 @@ const SearchTrain = () => {
     };
 
     useEffect(() => {
-        axios.get("http://localhost:8000/searchTrain").then((response) => {
+        axios.get("http://localhost:8000/booking/searchTrain").then((response) => {
             setDestinationsList(response.data);
         });
         

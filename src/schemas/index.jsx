@@ -21,3 +21,10 @@ export const creditcardSchema = Yup.object({
     expiry: Yup.number().required("Expiry date is required"),
     cvc: Yup.number().required("CVC is required")
 });
+
+export const addTrainSchema = Yup.object({
+    trainName: Yup.string().required("Please Enter Train Name"),
+    fromStation: Yup.string().required("Please Enter From Station"),
+    toStation:  Yup.string().required("Please Enter To Station"),
+    startTiming:  Yup.string().required("Please Enter Train Start Timing").matches(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/, "Please Enter Time in HH:MM format")
+});
